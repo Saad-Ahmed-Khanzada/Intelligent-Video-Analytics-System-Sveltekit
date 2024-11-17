@@ -1,0 +1,47 @@
+<script lang="ts">
+	import { page } from '$app/stores';
+
+	import { getDrawerStore } from '@skeletonlabs/skeleton';
+	import CameraSelectionRail from '../PageSelectionRail/PageSelectionRail.svelte';
+	import { onMount, afterUpdate, onDestroy, getAllContexts } from 'svelte';
+	import { getCamList } from '$lib/helpers/cameraHelpers';
+
+	export let cameraListProp;
+
+	const drawerStore = getDrawerStore();
+
+	$: cameraList = cameraListProp;
+
+	// Reactive
+	$: listboxItemActive = (href: string) =>
+		$page.url.pathname?.includes(href) ? 'bg-primary-active-token' : '';
+</script>
+
+<div
+	class="grid grid-cols-[auto_1fr] w-full h-full bg-surface-50-900-token border-r border-surface-500/30 {$$props.class ??
+		''}"
+>
+	<!-- <CameraSelectionRail /> -->
+	{#if !$page.url.pathname?.includes('dashboard')}
+		<section class="pb-20 space-y-4 overflow-y-auto text-xl font-bold">
+			<nav class="list-nav">
+				<ul>
+					{#each cameraList as camera}
+						<li class={listboxItemActive('dashboard')}>
+							<a
+								href={`${$page.url.pathname}${camera.href}`}
+								data-sveltekit-preload-data="hover"
+								on:keypress
+								on:click={drawerStore.close}
+							>
+								<span class="flex-auto">{camera.cameraName}</span>
+							</a>
+						</li>
+					{:else}
+						<li>No items</li>
+					{/each}
+				</ul>
+			</nav>
+		</section>
+	{/if}
+</div>

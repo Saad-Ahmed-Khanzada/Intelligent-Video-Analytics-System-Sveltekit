@@ -1,0 +1,8 @@
+{
+  "weeklyData": [
+    {"weekStartDate": "2024-05-01", "weekEndDate": "2024-05-07", "entrances": 3850, "exits": 3660},
+    {"weekStartDate": "2024-05-08", "weekEndDate": "2024-05-14", "entrances": 3950, "exits": 3760},
+    {"weekStartDate": "2024-05-15", "weekEndDate": "2024-05-21", "entrances": 4050, "exits": 3860},
+    {"weekStartDate": "2024-05-22", "weekEndDate": "2024-05-28", "entrances": 4150, "exits": 3960}
+  ]
+}
