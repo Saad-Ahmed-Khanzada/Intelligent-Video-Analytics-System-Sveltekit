@@ -36,3 +36,5 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+-A web application built with SvelteKit that leverages a Python-based backend to perform real-time people counting from video streams. The backend utilizes advanced computer vision techniques to accurately detect and count individuals, while the frontend displays the live count and historical data in a user-friendly interface.
